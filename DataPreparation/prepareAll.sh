@@ -1,0 +1,6 @@
+python part_1_generate_songs_id_to_artist_id.py
+python part_2_generate_only_listened_artist_id_to_song_id.py
+python part_3_generate_artist_id_to_play_count.py
+python part_4_generate_sparse_data.py
+python part_5_erase_artist_and_users_with_wrong_distribution.py
+python part_6_generate_data_sets.py
