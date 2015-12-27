@@ -89,7 +89,7 @@ if __name__ == "__main__":
 
     #configuration
     Config = ConfigParser()
-    Config.read("configs/"+sys.argv[1])
+    Config.read("Configs/"+sys.argv[1])
     threadsNumber = Config.getint("RBM", "threadsNumber")
     batchSizeForOneThread = Config.getint("RBM", "batchSizeForOneThread")
     M = Config.getint("RBM", "artistsNumber")
@@ -119,13 +119,13 @@ if __name__ == "__main__":
     numberOfMiniSets = np.int(np.ma.floor(dataLoader.trainingSetSize / (threadsNumber * batchSizeForOneThread)))
 
 
-    with open("outs/"+sys.argv[1]+"_validation_RMSE.txt", "a") as rmsesFile:
+    with open("Outs/"+sys.argv[1]+"_validation_RMSE.txt", "a") as rmsesFile:
         dataLoader.StartNewValidationSet()
         GetVisiableLayer = dataLoader.GiveVisibleLayerForValidation
         setSize = dataLoader.validationSetSize
         rmsesFile.write("Epoch {0}, RMSE {1}\n".format(0, computeRMSE(verbose=Verbose)))
         rmsesFile.flush()
-    with open("outs/"+sys.argv[1]+"_training_RMSE.txt", "a") as rmsesFile:
+    with open("Outs/"+sys.argv[1]+"_training_RMSE.txt", "a") as rmsesFile:
         dataLoader.StartNewValidationFromTrainingSet()
         GetVisiableLayer = dataLoader.GiveVisibleLayerForValidationFromTraining
         setSize = dataLoader.validationFromTrainingSetSize
@@ -146,13 +146,13 @@ if __name__ == "__main__":
         else:
             learnOneEpoch(verbose=Verbose, T=1)
 
-        with open("outs/"+sys.argv[1]+"_validation_RMSE.txt", "a") as rmsesFile:
+        with open("Outs/"+sys.argv[1]+"_validation_RMSE.txt", "a") as rmsesFile:
             dataLoader.StartNewValidationSet()
             GetVisiableLayer = dataLoader.GiveVisibleLayerForValidation
             setSize = dataLoader.validationSetSize
             rmsesFile.write("Epoch {0}, RMSE {1}\n".format(i+1, computeRMSE(verbose=Verbose)))
             rmsesFile.flush()
-        with open("outs/"+sys.argv[1]+"_training_RMSE.txt", "a") as rmsesFile:
+        with open("Outs/"+sys.argv[1]+"_training_RMSE.txt", "a") as rmsesFile:
             dataLoader.StartNewValidationFromTrainingSet()
             GetVisiableLayer = dataLoader.GiveVisibleLayerForValidationFromTraining
             setSize = dataLoader.validationFromTrainingSetSize
