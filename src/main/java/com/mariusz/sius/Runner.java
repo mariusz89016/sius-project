@@ -1,3 +1,5 @@
+package com.mariusz.sius;
+
 import com.codahale.metrics.Gauge;
 import com.codahale.metrics.MetricRegistry;
 import com.github.jjagged.metrics.reporting.StatsDReporter;

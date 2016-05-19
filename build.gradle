@@ -6,7 +6,7 @@ apply plugin: 'application'
 
 sourceCompatibility = 1.5
 
-mainClassName = "Runner"
+mainClassName = "com.mariusz.sius.Runner"
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8

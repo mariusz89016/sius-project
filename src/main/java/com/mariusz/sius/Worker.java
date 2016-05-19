@@ -1,3 +1,5 @@
+package com.mariusz.sius;
+
 import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.Timer;
 import java.util.Random;
