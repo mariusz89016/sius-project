@@ -1,0 +1,20 @@
+version: '2'
+services:
+    redis:
+        image: redis
+    dynomite:
+        image: dictcp/dynomite
+        ports:
+            - "8101:8101"
+            - "8102:8102"
+            - "22222:22222"
+        depends_on:
+            - redis
+        links:
+            - redis:redisserver
+    graphite:
+        image: hopsoft/graphite-statsd
+    grafana:
+        image: grafana/grafana
+        ports:
+            - "3000:3000"
