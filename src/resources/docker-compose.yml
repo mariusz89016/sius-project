@@ -2,7 +2,7 @@ version: '2'
 services:
     musicrecommender:
         build: ../../musicrecommender
-        command: /bin/sh -c "cd WebSite; ls -l; python prepareDB.py; echo prep done; python manage.py runserver 0.0.0.0:8000; echo manage done"
+        command: /bin/sh -c "cd WebSite; pwd; python prepareDB.py; echo prep done; python manage.py runserver 0.0.0.0:8000; echo manage done"
         ports:
             - 8000:8000
 

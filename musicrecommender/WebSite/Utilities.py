@@ -6,7 +6,7 @@ from mysite.models import Artists
 
 class Utilities():
 	def __init__(self,):
-		self.rbm = loadRBM("C:/Studia/inz/ArtistRecomenderv2.0/Data/Best_RBM.npz")
+		self.rbm = loadRBM("/usr/src/app/WebSite/Best_RBM.npz")
 		self.Users = GiveUsersForSite()
 
 

@@ -198,6 +198,6 @@ class DataLoader():
 def ToBinary(data):
     pass
 
-def GiveUsersForSite(dataFile = "C:\Studia\inz\ArtistRecomenderv2.0\Data\ValidationFromTrainingSet.npy",):
+def GiveUsersForSite(dataFile = "/usr/src/app/WebSite/ValidationFromTrainingSet.npy",):
     data = np.load(dataFile)
     return data
