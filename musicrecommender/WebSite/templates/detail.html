@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>User Rank</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <style>
+  .popover{
+    max-width: 80%; /* Max Width of the popover (depending on the container!) */
+  }
+  .table tbody tr:hover td, .table tbody tr:hover th {
+    background-color: #f7f7f7;
+}
+  </style>
+  <script>
+	$(function () {
+		$('[data-toggle="popover"]').popover()
+	})
+  </script>
+</head>
+<body>
+
+	{% if not predicted %}
+	<div class="row">
+			<div class="col-md-2">
+				<a href="{% url 'randomUser' %}" class="btn btn-warning center-block custom-button-width" role="button">Get next</a>	
+			</div>
+			<div class="col-md-2 pull-right">
+				<a href="{% url 'predict' id %}" class="btn btn-success center-block custom-button-width .navbar-right" role="button">Predict</a>
+			</div>
+		</div>
+	
+		
+	<div class="center-block" style="margin-top:-30px">
+		<center>show only grade:<br />
+		{% if selectedGrade == '1' %}
+			<a href="{% url 'detail' id %}" class="btn  btn-warning" style="width:40px" role="button">1</a>
+		{% else %} 
+			<a href="{% url 'detailByGrade' id 1 %}" class="btn  btn-success" style="width:40px" role="button">1</a>
+		{% endif%}
+		
+		{% if selectedGrade == '2' %}
+			<a href="{% url 'detail' id %}" class="btn  btn-warning" style="width:40px" role="button">2</a>
+		{% else %} 
+			<a href="{% url 'detailByGrade' id 2 %}"" class="btn btn-success" style="width:40px" role="button">2</a>
+		{% endif%}
+		
+		{% if selectedGrade == '3' %}
+			<a href="{% url 'detail' id %}" class="btn  btn-warning" style="width:40px" role="button">3</a>
+		{% else %} 
+			<a href="{% url 'detailByGrade' id 3 %}"" class="btn btn-success" style="width:40px" role="button">3</a>
+		{% endif%}
+		
+		{% if selectedGrade == '4' %}
+			<a href="{% url 'detail' id %}" class="btn  btn-warning" style="width:40px" role="button">4</a>
+		{% else %} 
+			<a href="{% url 'detailByGrade' id 4 %}"" class="btn btn-success" style="width:40px" role="button">4</a>
+		{% endif%}
+		
+		</center>
+	</div>	
+	{% else %}
+		<center><a href="{% url 'detail' id %}" style="width:200px" class="btn btn-warning center-block" role="button">Return to Grades</a></center>
+	
+	{% endif %}
+	
+	{% if artists %}
+	<table class="table">
+	    <thead>
+	      <tr>
+	        <th>Artist Name</th>
+	        <th>Grade</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+		{% for artist in artists  %}
+		
+	      <tr data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Tags" data-content="{{artist.2}}">
+	        <td>{{artist.0}}</td>
+	        <td>{{artist.1}}</td>
+	      </tr>
+	     {% endfor %}
+	    </tbody>
+	  </table>
+
+{% else %}
+<center><h1>No grades</h1></center>
+{% endif %}
+</body>
+</html>
