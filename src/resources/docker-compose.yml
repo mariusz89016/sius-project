@@ -1,5 +1,11 @@
 version: '2'
 services:
+    musicrecommender:
+        build: ../../musicrecommender
+        command: /bin/sh -c "cd WebSite; ls -l; python prepareDB.py; echo prep done; python manage.py runserver 0.0.0.0:8000; echo manage done"
+        ports:
+            - 8000:8000
+
     redis:
         image: redis
     dynomite:
@@ -18,5 +24,5 @@ services:
         image: grafana/grafana
         ports:
             - "3000:3000"
-    image-service:
-        image: sius/flask-image-service
+    #image-service:
+    #    image: sius/flask-image-service
