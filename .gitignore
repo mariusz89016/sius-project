@@ -63,3 +63,6 @@ fabric.properties
 *.iml
 .idea
 
+musicrecommender/Best_RBM.npz
+musicrecommender/ValidationFromTrainingSet.npy
+
